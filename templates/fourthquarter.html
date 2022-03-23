@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goblin’ Cakes – Sales by Quarter</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+        <header class="header">Goblin’ Cakes – Sales by 4th Quarter</header>
+            <table class="table">
+                <tr class="table__header">
+                    <th>Product</th>
+                    <th>Product Type</th>
+                    <th>Price</th>
+                    <th>#Units Sold</th>
+                    <th>Total Sales Value</th>
+                </tr>
+
+                {%for GoblinCakes in query%}
+                <tr class="table__rows">                   
+                    <td>
+                        {{GoblinCakes.product}}
+                    </td>
+                    <td>
+                        {{GoblinCakes.product_type}}
+                    </td>
+                    <td>
+                        {{GoblinCakes.price}} £
+                    </td>
+                    <td>
+                        {{GoblinCakes.units_sold}}
+                    </td>
+                    <td>
+                        {{GoblinCakes.price * GoblinCakes.units_sold}} £
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+
+            <a href="firstquarter" class="btn">1st Quarter</a>
+            <a href="secondquarter" class="btn">2nd Quarter</a>
+            <a href="thirdquarter" class="btn">3rd Quarter</a>
+            <a href="fourthquarter" class="btn">4th Quarter</a>
+            <a href="/" class="btn">All Quarters</a>
+</body>
+</html>
